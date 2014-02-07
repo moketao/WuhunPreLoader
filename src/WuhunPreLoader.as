@@ -11,7 +11,6 @@ package
 	import flash.system.ApplicationDomain;
 	import flash.system.LoaderContext;
 	import flash.system.Security;
-	[SWF(frameRate="60")]
 	public class WuhunPreLoader extends Sprite{
 		public static var isDebug:Boolean;
 		public function WuhunPreLoader(){
@@ -31,7 +30,7 @@ package
 			{
 				Config.p[k]=root.loaderInfo.parameters[k];
 			}
-			
+			stage.frameRate = Config.p["framerate"]?Config.p["framerate"]:30;
 			//load main
 			var loader:Loader = new Loader();
 				addChild(loader);
